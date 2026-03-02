@@ -53,7 +53,7 @@ def get_all_blogs(
     db: Session = Depends(get_db), current_user: User = Depends(get_current_user)
 ):
 
-    cached_data = redis_client.get("all_blogs")  # check in redis data is present or not
+    cached_data = redis_client.get("all_blogs" )  # check in redis data is present or not
 
     if cached_data:
 
