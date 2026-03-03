@@ -6,7 +6,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest     # matlab github ek vm dega os hoga ubuntu ka latest version 
 
     services:
       redis:
@@ -15,16 +15,16 @@ jobs:
           - 6379:6379
 
     env:
-      SUPABASE_URL: ${{ secrets.DATABASE_URL }}
+      SUPABASE_URL: ${{ secrets.DATABASE_URL }}  # ${{}} github actions expressions syntax
       SUPABASE_KEY: ${{ secrets.DATABASE_KEY }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4    # "-" yaml me list items start hota hai, uses: koi prebuilt github actions use kar rahe ho, code clone ho raha hai ci vm machine pe 
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
+      - uses: actions/setup-python@v5   # action python install karta hai 
+        with:                           # configuration pass karte hai 
+          python-version: "3.11"        # 3.11 install karega "" isi liye lagay taaki float na samajh le 
 
-      - run: pip install -r requirements.txt
+      - run: pip install -r requirements.txt   # command run karo -r means read from file or saari dependencies and all install karo 
 
-      - run: pytest -v
+      - run: pytest -v         #-v har test ka naam show karega pass faily clearly batayega 
