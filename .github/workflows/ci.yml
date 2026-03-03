@@ -17,6 +17,7 @@ jobs:
     env:
       SUPABASE_URL: ${{ secrets.DATABASE_URL }}  # ${{}} github actions expressions syntax
       SUPABASE_KEY: ${{ secrets.DATABASE_KEY }}
+      REDIS_URL: redis://localhost:6379
 
     steps:
       - uses: actions/checkout@v4    # "-" yaml me list items start hota hai, uses: koi prebuilt github actions use kar rahe ho, code clone ho raha hai ci vm machine pe 
